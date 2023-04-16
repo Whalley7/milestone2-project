@@ -56,10 +56,11 @@ const cardArray = [
     
     {
         name: 'netball',
-        img: 'assets/images/netba.png'
-    },{
+        img: 'assets/images/netball.png'
+    },
+    {
         name: 'netball',
-        img: 'assets/images/netba.png'
+        img: 'assets/images/netball.png'
     },
     {
         name: 'rowing',
@@ -77,14 +78,7 @@ const cardArray = [
         name: 'skiing',
         img: 'assets/images/skiing.png'
     },
-    {
-        name: 'snowboarding',
-        img: 'assets/images/snowboarding.png'
-    },
-    {
-        name: 'snowboarding',
-        img: 'assets/images/snowboarding.png'
-    },
+
     {
         name: 'surfing',
         img: 'assets/images/surfing.png'
@@ -94,12 +88,12 @@ const cardArray = [
         img: 'assets/images/surfing.png'
     },
     {
-        name: 'sword-fencing',
-        img: 'assets/images/sword-fencing.png'
+        name: 'fencing',
+        img: 'assets/images/fencing.png'
     },
     {
-        name: 'sword-fencing',
-        img: 'assets/images/sword-fencing.png'
+        name: 'fencing',
+        img: 'assets/images/fencing.png'
     },
     {
         name: 'weight-lifing',
@@ -145,7 +139,7 @@ moves.innerHTML = movesCount;
     cardsChosenIds.push(cardId)
     this.setAttribute('src', cardArray[cardId].img)
     if (cardsChosen.length === 2) {
-        setTimeout(checkMatch, 50);
+        setTimeout(checkMatch, 500);
     }
 }
 /*dispaying how many moves user has taken*/
@@ -164,7 +158,7 @@ function createBoard() {
         card.addEventListener('click', flipCard);
         gridDisplay.append(card);
     }
-    gridDisplay.style.gridTemplateColumns = `repeat(${size},auto)`;
+
 }
 //For timer
 const timeGenerator = () => {
