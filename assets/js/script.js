@@ -1,6 +1,44 @@
+const user = "";
 
 
 
+function setCookie(check,cvalue,exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = check + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  
+  function getCookie(check) {
+    let yourName = check + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        checkCookie();
+      }
+      if (c.indexOf(yourName) == 0) {
+        return c.substring(yourName.length, c.length);
+      }
+    }
+    return "";
+    checkCookie();
+  }
+  
+  function checkCookie() {
+    let user = getCookie("username");
+    if (user != "") {
+      alert("Welcome again " + user);
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+         setCookie("username", user, 30);
+       }
+    }
+    createBoard();
+  }
 
 /* audio feedback on completing the game*/
 function play() {
@@ -9,7 +47,7 @@ function play() {
   }
 
  
-const cardArray = [
+const deck = [
 
     {
         name: 'running',
@@ -67,7 +105,7 @@ const cardArray = [
         img: 'assets/images/weight-lifting.png'
     },
     {
-        name: 'weight-lifting',
+        name: 'weight-lifing',
         img: 'assets/images/weight-lifting.png'
     },
     {
@@ -102,11 +140,11 @@ moves.innerHTML = movesCount;
 /*settings to flip the card when clicked*/
  function flipCard() {
     const cardId = this.getAttribute('data-id');
-    cardsChosen.push(cardArray[cardId].name)
+    cardsChosen.push(deck[cardId].name)
     cardsChosenIds.push(cardId)
-    this.setAttribute('src', cardArray[cardId].img)
+    this.setAttribute('src', deck[cardId].img)
     if (cardsChosen.length === 2) {
-        setTimeout(checkMatch, 500);
+        setTimeout(checkForMatch, 500);
     }
 }
 /*dispaying how many moves user has taken*/
@@ -118,14 +156,13 @@ const movesCounter = () => {
 
 /*creation of the initial board using the card array*/
 function createBoard() {
-    for (let i = 0; i < cardArray.length; i++) {
+    for (let i = 0; i < deck.length; i++) {
         let card = document.createElement('img');
         card.setAttribute('src', 'assets/images/blank.png');
         card.setAttribute('data-id', i);
         card.addEventListener('click', flipCard);
         gridDisplay.append(card);
     }
-    gridDisplay.style.gridTemplateColumns = `repeat(${size},auto)`;
 }
 //For timer
 const timeGenerator = () => {
@@ -142,7 +179,7 @@ const timeGenerator = () => {
   };
 
 /*check if cards chosen are a match*/
-function checkMatch() {
+function checkForMatch() {
     console.log('check for match')
     const cards = document.querySelectorAll('#grid img');
     const optionOneId = cardsChosenIds[0];
@@ -180,8 +217,8 @@ function checkMatch() {
  
   
 
-    if (cardsWon.length == cardArray.length/2) {
-        resultDisplay.innerHTML = 'Congratulations! You have found them all!';
+    if (cardsWon.length == deck.length/2) {
+        resultDisplay.innerHTML = 'Congratulations! ' + check + ' You have found them all!';
         play()
     }
 }
@@ -191,6 +228,6 @@ function checkMatch() {
  * Main code
  */
 
-cardArray.sort(() => 0.5 - Math.random())
-createBoard()
+deck.sort(() => 0.5 - Math.random())
+
 

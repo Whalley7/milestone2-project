@@ -9,6 +9,8 @@
     grid-template-rows: auto;
     grid-template-columns: auto;
 }
+
+
 .game-container {
     box-sizing: content-box;
     width: 550px;
