@@ -45,59 +45,26 @@ const cardArray = [
         name: 'golfing',
         img: 'assets/images/golfing.png'
     },
-    {
-        name: 'horse-racing',
-        img: 'assets/images/horse-racing.png'
-    },
-    {
-        name: 'horse-racing',
-        img: 'assets/images/horse-racing.png'
-    },
-    
-    {
-        name: 'netball',
-        img: 'assets/images/netball.png'
-    },
-    {
-        name: 'netball',
-        img: 'assets/images/netball.png'
-    },
-    {
-        name: 'rowing',
-        img: 'assets/images/rowing.png'
-    },
-    {
-        name: 'rowing',
-        img: 'assets/images/rowing.png'
-    },
-    {
-        name: 'skiing',
-        img: 'assets/images/skiing.png'
-    },
-    {
-        name: 'skiing',
-        img: 'assets/images/skiing.png'
-    },
 
     {
-        name: 'surfing',
-        img: 'assets/images/surfing.png'
+        name: 'rowing',
+        img: 'assets/images/rowing.png'
     },
     {
-        name: 'surfing',
-        img: 'assets/images/surfing.png'
+        name: 'rowing',
+        img: 'assets/images/rowing.png'
     },
     {
-        name: 'fencing',
-        img: 'assets/images/fencing.png'
+        name: 'skiing',
+        img: 'assets/images/skiing.png'
     },
     {
-        name: 'fencing',
-        img: 'assets/images/fencing.png'
+        name: 'skiing',
+        img: 'assets/images/skiing.png'
     },
     {
         name: 'weight-lifing',
-        img: 'assets/images/surfing.png'
+        img: 'assets/images/weight-lifting.png'
     },
     {
         name: 'weight-lifting',
@@ -152,13 +119,13 @@ const movesCounter = () => {
 /*creation of the initial board using the card array*/
 function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
-        const card = document.createElement('img');
+        let card = document.createElement('img');
         card.setAttribute('src', 'assets/images/blank.png');
         card.setAttribute('data-id', i);
         card.addEventListener('click', flipCard);
         gridDisplay.append(card);
     }
-
+    gridDisplay.style.gridTemplateColumns = `repeat(${size},auto)`;
 }
 //For timer
 const timeGenerator = () => {
