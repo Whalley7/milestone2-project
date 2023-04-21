@@ -1,44 +1,7 @@
-const user = "";
 
 
 
-function setCookie(check,cvalue,exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = check + "=" + cvalue + ";" + expires + ";path=/";
-  }
-  
-  function getCookie(check) {
-    let yourName = check + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-        checkCookie();
-      }
-      if (c.indexOf(yourName) == 0) {
-        return c.substring(yourName.length, c.length);
-      }
-    }
-    return "";
-    checkCookie();
-  }
-  
-  function checkCookie() {
-    let user = getCookie("username");
-    if (user != "") {
-      alert("Welcome again " + user);
-    } else {
-       user = prompt("Please enter your name:","");
-       if (user != "" && user != null) {
-         setCookie("username", user, 30);
-       }
-    }
-    createBoard();
-  }
+
 
 /* audio feedback on completing the game*/
 function play() {
@@ -229,5 +192,5 @@ function checkForMatch() {
  */
 
 deck.sort(() => 0.5 - Math.random())
-
+createBoard()
 
