@@ -16,23 +16,12 @@ const deck = [
         name: 'running',
         img: 'assets/images/running.png'
     },
-    {
-        name: 'running',
-        img: 'assets/images/running.png'
-    },
     
     {
         name: 'cycling',
         img: 'assets/images/cycling.png'
     },
-    {
-        name: 'cycling',
-        img: 'assets/images/cycling.png'
-    },
-    {
-        name: 'fencing',
-        img: 'assets/images/fencing.png'
-    },
+
     {
         name: 'fencing',
         img: 'assets/images/fencing.png'
@@ -42,38 +31,20 @@ const deck = [
         name: 'golfing',
         img: 'assets/images/golfing.png'
     },
-    {
-        name: 'golfing',
-        img: 'assets/images/golfing.png'
-    },
 
     {
         name: 'rowing',
         img: 'assets/images/rowing.png'
     },
-    {
-        name: 'rowing',
-        img: 'assets/images/rowing.png'
-    },
+
     {
         name: 'skiing',
         img: 'assets/images/skiing.png'
     },
-    {
-        name: 'skiing',
-        img: 'assets/images/skiing.png'
-    },
+
     {
         name: 'weight-lifing',
         img: 'assets/images/weight-lifting.png'
-    },
-    {
-        name: 'weight-lifing',
-        img: 'assets/images/weight-lifting.png'
-    },
-    {
-        name: 'swiming',
-        img: 'assets/images/swiming.png'
     },
 
     {
@@ -101,7 +72,7 @@ const cardsWon = [];
 moves.innerHTML = movesCount;
 
 /*settings to flip the card when clicked*/
- function flipCard() {
+ function flip-card() {
     const cardId = this.getAttribute('data-id');
     cardsChosen.push(deck[cardId].name)
     cardsChosenIds.push(cardId)
@@ -119,12 +90,16 @@ const movesCounter = () => {
 
 /*creation of the initial board using the card array*/
 function createBoard() {
+// Duplicate array to create a match for each card
+     deck = gridDisplay.concat(deck);
     for (let i = 0; i < deck.length; i++) {
         let card = document.createElement('img');
         card.setAttribute('src', 'assets/images/blank.png');
         card.setAttribute('data-id', i);
-        card.addEventListener('click', flipCard);
+        card.addEventListener('click', flip-card);
         gridDisplay.append(card);
+        // Duplicate array to create a match for each card
+
     }
 }
 //For timer
@@ -191,6 +166,6 @@ function checkForMatch() {
  * Main code
  */
 
-deck.sort(() => 0.5 - Math.random())
-createBoard()
+deck.sort(() => 0.5 - Math.random());
+createBoard();
 
