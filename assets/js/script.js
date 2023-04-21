@@ -8,8 +8,6 @@ function play() {
     let audio = new Audio('assets/sounds/clapping.wav');
     audio.play();
   }
-
- 
 const deck = [
 
     {
@@ -72,7 +70,7 @@ const cardsWon = [];
 moves.innerHTML = movesCount;
 
 /*settings to flip the card when clicked*/
- function flip-card() {
+ function flipCard() {
     const cardId = this.getAttribute('data-id');
     cardsChosen.push(deck[cardId].name)
     cardsChosenIds.push(cardId)
@@ -88,7 +86,7 @@ const movesCounter = () => {
    
   };
 
-/*creation of the initial board using the card array*/
+/*creation of the initial board using the card array
 function createBoard() {
 // Duplicate array to create a match for each card
      deck = gridDisplay.concat(deck);
@@ -102,6 +100,31 @@ function createBoard() {
 
     }
 }
+*/``
+``
+const matrixGenerator = (deck, size = 4) => {
+    gameContainer.innerHTML = "";
+    deck = [...deck, ...deck];
+    //simple shuffle
+    deck.sort(() => Math.random() - 0.5);
+    for (let i = 0; i < size * size; i++) {
+      /*
+          Create Cards
+          before => front side (contains question mark)
+          after => back side (contains actual image);
+          data-card-values is a custom attribute which stores the names of the cards to match later
+        */
+      gameContainer.innerHTML += `
+       <div class="display" data-card-value="assets/images/${deck[i].name}">
+          <div class="card-before">?</div>
+          <div class="card-after">
+          <img src="assets/images/${deck[i].image}" class="image"/></div>
+       </div>
+       `;
+    }
+    //Grid
+    gameContainer.style.gridTemplateColumns = `repeat(${size},auto)`;
+  
 //For timer
 const timeGenerator = () => {
     seconds += 1;
