@@ -1,15 +1,58 @@
+const user = "";
 
 
 
-
+function setCookie(check,cvalue,exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = check + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  
+  function getCookie(check) {
+    let yourName = check + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        checkCookie();
+      }
+      if (c.indexOf(yourName) == 0) {
+        return c.substring(yourName.length, c.length);
+      }
+    }
+    return "";
+    checkCookie();
+  }
+  
+  function checkCookie() {
+    let user = getCookie("username");
+    if (user != "") {
+      alert("Welcome again " + user);
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+         setCookie("username", user, 30);
+       }
+    }
+    createBoard();
+  }
 
 /* audio feedback on completing the game*/
 function play() {
     let audio = new Audio('assets/sounds/clapping.wav');
     audio.play();
   }
+
+ 
 const deck = [
 
+    {
+        name: 'running',
+        img: 'assets/images/running.png'
+    },
     {
         name: 'running',
         img: 'assets/images/running.png'
@@ -19,7 +62,14 @@ const deck = [
         name: 'cycling',
         img: 'assets/images/cycling.png'
     },
-
+    {
+        name: 'cycling',
+        img: 'assets/images/cycling.png'
+    },
+    {
+        name: 'fencing',
+        img: 'assets/images/fencing.png'
+    },
     {
         name: 'fencing',
         img: 'assets/images/fencing.png'
@@ -29,20 +79,38 @@ const deck = [
         name: 'golfing',
         img: 'assets/images/golfing.png'
     },
+    {
+        name: 'golfing',
+        img: 'assets/images/golfing.png'
+    },
 
     {
         name: 'rowing',
         img: 'assets/images/rowing.png'
     },
-
+    {
+        name: 'rowing',
+        img: 'assets/images/rowing.png'
+    },
     {
         name: 'skiing',
         img: 'assets/images/skiing.png'
     },
-
+    {
+        name: 'skiing',
+        img: 'assets/images/skiing.png'
+    },
     {
         name: 'weight-lifing',
         img: 'assets/images/weight-lifting.png'
+    },
+    {
+        name: 'weight-lifing',
+        img: 'assets/images/weight-lifting.png'
+    },
+    {
+        name: 'swiming',
+        img: 'assets/images/swiming.png'
     },
 
     {
@@ -86,45 +154,16 @@ const movesCounter = () => {
    
   };
 
-/*creation of the initial board using the card array
+/*creation of the initial board using the card array*/
 function createBoard() {
-// Duplicate array to create a match for each card
-     deck = gridDisplay.concat(deck);
     for (let i = 0; i < deck.length; i++) {
         let card = document.createElement('img');
         card.setAttribute('src', 'assets/images/blank.png');
         card.setAttribute('data-id', i);
-        card.addEventListener('click', flip-card);
+        card.addEventListener('click', flipCard);
         gridDisplay.append(card);
-        // Duplicate array to create a match for each card
-
     }
 }
-*/``
-``
-const matrixGenerator = (deck, size = 4) => {
-    gameContainer.innerHTML = "";
-    deck = [...deck, ...deck];
-    //simple shuffle
-    deck.sort(() => Math.random() - 0.5);
-    for (let i = 0; i < size * size; i++) {
-      /*
-          Create Cards
-          before => front side (contains question mark)
-          after => back side (contains actual image);
-          data-card-values is a custom attribute which stores the names of the cards to match later
-        */
-      gameContainer.innerHTML += `
-       <div class="display" data-card-value="assets/images/${deck[i].name}">
-          <div class="card-before">?</div>
-          <div class="card-after">
-          <img src="assets/images/${deck[i].image}" class="image"/></div>
-       </div>
-       `;
-    }
-    //Grid
-    gameContainer.style.gridTemplateColumns = `repeat(${size},auto)`;
-  
 //For timer
 const timeGenerator = () => {
     seconds += 1;
@@ -189,6 +228,6 @@ function checkForMatch() {
  * Main code
  */
 
-deck.sort(() => 0.5 - Math.random());
-createBoard();
+deck.sort(() => 0.5 - Math.random())
+
 
