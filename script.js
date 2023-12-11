@@ -117,14 +117,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //Play applause at the end of a game
 function playApplause() {
-  let audio = new Audio('assets/music/applause7.mp3');
+  let audio = new Audio('assets/applause7.mp3');
   if (!silent) {
     audio.play();
   }
 }
 
 function clickCard() {
-  let audio = new Audio('assets/music/click-button-140881.mp3');
+  let audio = new Audio('assets/click-button-140881.mp3');
   if (!silent) {
     audio.play();
   }
@@ -132,7 +132,7 @@ function clickCard() {
 
 //Play a sound when 2 cards match
 function playDing() {
-  let audio = new Audio('assets/music/mixkit-christmas-magic-bell-hit-939.wav');
+  let audio = new Audio('assets/mixkit-christmas-magic-bell-hit-939.wav');
   if (!silent) {
     audio.play();
   }
@@ -215,8 +215,8 @@ function updateScores(username, level, newScore) {
     oldScore = userScores[username][level];
     if (newScore <= userScores[username][level]) {
 
-      modalHeader.innerText = `Bad Luck!`
-      scoreMessage.innerText = `Your ${newScore} score is not higher than your score: ${userScores[username][level]} at the ${level} level`
+      modalHeader.innerHTML = `Bad Luck!`
+      scoreMessage.innerHTML = `Your ${newScore} score is not higher than your score: ${userScores[username][level]} at the ${level} level`
 
     } else if (newScore > userScores[username][level]) {
       userScores[username][level] = newScore;
@@ -234,8 +234,8 @@ function updateScores(username, level, newScore) {
     };
     userScores[username][level] = newScore;
     // newUserModal(username, level, score);
-    modalHeader.innerText = `New Score Added!  Well Done!`
-    scoreMessage.innerText = `First score: ${newScore} added for the ${level} level!`;
+    modalHeader.innerHTML = `New Score Added!  Well Done!`
+    scoreMessage.innerHTML = `First score: ${newScore} added for the ${level} level!`;
     playApplause();
   }
 
@@ -244,7 +244,7 @@ function updateScores(username, level, newScore) {
   $("#winModal").modal(`show`);
 
   let levelText = document.getElementById("levelText");
-  levelText.innerText = `Level: ${level}. Highest score: ${userScores[username][level]}`;
+  levelText.innerHTML = `Level: ${level}. Highest score: ${userScores[username][level]}`;
 
 
 
@@ -320,8 +320,8 @@ function isSwitchingLevel(level) {
   } else {
     previousScore = 0;
   }
-  levelText.innerText = `Level: ${level}</li> <li>Highest score: ${previousScore}`;
-  timerElement.innerText = '00:00';
+  levelText.innerHTML = `<li>Level: ${level}</li> <li>Highest score: ${previousScore}</li>`;
+  timerElement.innerHTML = '00:00';
   resetAudio();
   shuffleDeck();
 }
