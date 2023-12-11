@@ -7,7 +7,7 @@ let stopGame = false;
 
 
 
-//Card
+//Card 
 let flips = document.querySelectorAll(".card");
 const totalPairs = 8; // Total number of card pairs to match
 
@@ -82,7 +82,7 @@ let wordMonth = monthNames[monthNow.getMonth()];
 
 
 //Dislay current date
-document.getElementById("date").innerText = day + " " + wordMonth + " " + year;
+document.getElementById("date").innerHTML = day + " " + wordMonth + " " + year;
 
 
 
@@ -216,7 +216,7 @@ function updateScores(username, level, newScore) {
     if (newScore <= userScores[username][level]) {
 
       modalHeader.innerText = `Bad Luck!`
-      scoreMessage.innerText = `TeYour ${newScore} score is not higher than your score: ${userScores[username][level]} at the ${level} level`
+      scoreMessage.innerText =`Your ${newScore} score is not higher than your score: ${userScores[username][level]} at the ${level} level`
 
     } else if (newScore > userScores[username][level]) {
       userScores[username][level] = newScore;
@@ -225,7 +225,7 @@ function updateScores(username, level, newScore) {
       playApplause();
 
     }
-  } else {
+  } else {T
     // User doesn't exist, add a new entry with the specified level and score
     userScores[username] = {
       easy: 0,
@@ -235,7 +235,7 @@ function updateScores(username, level, newScore) {
     userScores[username][level] = newScore;
     // newUserModal(username, level, score);
     modalHeader.innerText = `New Score Added!  Well Done!`
-    scoreMessage.innerText = `First score: ${newScore} added for the ${level} level!`;
+    scoreMessage.innerText =`First score: ${newScore} added for the ${level} level!`;
     playApplause();
   }
 
@@ -245,7 +245,6 @@ function updateScores(username, level, newScore) {
 
   let levelText = document.getElementById("levelText");
   levelText.innerText = `Level: ${level}. Highest score: ${userScores[username][level]}`;
-
 
 
 }
@@ -320,7 +319,7 @@ function isSwitchingLevel(level) {
   } else {
     previousScore = 0;
   }
-  levelText.innerText = `Level: ${level} Highest score: ${previousScore}`;
+  levelText.innerText = `Level: ${level}\nHighest score: ${previousScore}`;
   timerElement.innerText = '00:00';
   resetAudio();
   shuffleDeck();
@@ -468,7 +467,7 @@ function shuffleDeck() {
   elapsedTime = 0;
   minutes = 0;
   clearInterval(timer);
-  timerElement.innerText = flips;
+  timerElement.innerHTML = flips;
   disableDeck = isGameActive = false;
   arr.sort(() => Math.random() > 0.5 ? 1 : -1);
   cards.forEach((card, index) => {
