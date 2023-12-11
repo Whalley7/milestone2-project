@@ -244,3 +244,108 @@
               </source>
             </audio>
     </div>
+      <!--Modal Files-->
+      <div class="container">
+        <!-- Trigger the modal with a button 
+  
+                      <!-- Modal -->
+        <div class="modal fade" id="winModal" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header" <p id="modalHeader">
+                </p>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+              </div>
+              <div class="modal-body">
+                <p id="scoreMessage"></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+      </div>
+      <!-- Input User Modal-->
+      <form id="my-form">
+        <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModal aria-hidden=" true">
+          <div class="modal-dialog modal-login">
+            <div class="modal-content">
+              <div class="modal-header">
+                <fieldset>
+                  <!--<div class="avatar" id="avatar"> -->
+                  <legend id="legend">Who wants to play?</legend>
+                </fieldset>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-lg" name="username" id="username" maxlength="15"
+                    autocomplete="off" aria-label="Type your name here" required>
+                </div>
+                <button id="user-info-submit-button" class="btn btn-dark user-info-submit-btn" aria-label="Submit Button">
+                  Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+  
+  
+      <!-- Reset Game Modal -->
+      <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="ResetModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Delete User</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-body">
+                <p>Pressing the delete button will delete your username and your progress. Press delete to proceed
+                  or
+                  cancel
+                  to save your information.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="reset-user-data" class="btn btn-warning" data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>`
+        </div>
+      </div>
+  
+      <!-- game information modal -->
+      <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="InfoModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header" id="info-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Game Instructions</h5>
+              <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="userData">
+              <p>
+                <li>Match all the cards</li>
+                <li>There are 3 levels.. Easy, Medium and hard</li>
+                <li>The level of difficulty
+                  lies in the details on the card.</li>
+              <p>Good Luck!</p>
+              </p>
+            </div>
+            <div class="modal-footer" id="modal-footer">
+              <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="script.js"></script>
+  </body>
+  </html>
