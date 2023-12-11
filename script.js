@@ -3,7 +3,7 @@ const flipsTag = document.querySelector(".flips b");
 const refreshBtn = document.querySelector(".details button");ima
 let timerInterval = document.getElementById("timerInterval");
 let stopGame = false;
-const imageChoice = "image-0";
+let images = "image-0";
 
 
 
@@ -50,7 +50,7 @@ let winModal = document.getElementById("winModal");
 
 let resetBtn = document.getElementById("exampleModalLongTitle");
 let username = localStorage.getItem("username");
-let images = 'images-0';//default setting
+
 
 
 function resetAudio() {
@@ -296,15 +296,15 @@ function isSwitchingLevel(level) {
 
   switch (level) {
     case 'easy':
-      image = 'image-0';
+      images = 'images-0';
 
       break;
     case 'med':
-      image = 'image-1';
+      images = 'images-1';
 
       break;
     case 'hard':
-      image = 'image-2';
+      images = 'images-2';
 
       break;
 
@@ -475,7 +475,7 @@ function shuffleDeck() {
     card.classList.remove("flip");
     let imgTag = card.querySelector(".back-view img");
     setTimeout(() => {
-      imgTag.src = `assets/images/${image}/img-${arr[index]}.png`;
+      imgTag.src = `assets/images/${images}/img-${arr[index]}.png`;
     }, 500);
     card.addEventListener("click", flipCard);
   });
