@@ -1,13 +1,13 @@
 
 const flipsTag = document.querySelector(".flips b");
-const refreshBtn = document.querySelector(".details button");
+const refreshBtn = document.querySelector(".details button");ima
 let timerInterval = document.getElementById("timerInterval");
 let stopGame = false;
+const imageChoice = "image-0";
 
 
 
-
-//Card 
+//Card
 let flips = document.querySelectorAll(".card");
 const totalPairs = 8; // Total number of card pairs to match
 
@@ -56,7 +56,7 @@ let images = 'images-0';//default setting
 function resetAudio() {
   // Check if the audio element is not null or undefined
 
-  const audioElement = document.getElementById('audio');
+  const audioElement = document.getElementById("audio");
   if (audioElement) {
     // Set the currentTime to 0 to go back to the beginning
     audioElement.currentTime = 0;
@@ -117,14 +117,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //Play applause at the end of a game
 function playApplause() {
-  let audio = new Audio('assets/applause7.mp3');
+  let audio = new Audio('assets/music/applause7.mp3');
   if (!silent) {
     audio.play();
   }
 }
 
 function clickCard() {
-  let audio = new Audio('assets/click-button-140881.mp3');
+  let audio = new Audio('assets/music/click-button-140881.mp3');
   if (!silent) {
     audio.play();
   }
@@ -132,7 +132,7 @@ function clickCard() {
 
 //Play a sound when 2 cards match
 function playDing() {
-  let audio = new Audio('assets/mixkit-christmas-magic-bell-hit-939.wav');
+  let audio = new Audio('assets/music/mixkit-christmas-magic-bell-hit-939.wav');
   if (!silent) {
     audio.play();
   }
@@ -475,7 +475,7 @@ function shuffleDeck() {
     card.classList.remove("flip");
     let imgTag = card.querySelector(".back-view img");
     setTimeout(() => {
-      imgTag.src = "assets/images/${image}/img-${arr[index]}.png";
+      imgTag.src = `assets/images/${images}/img-${arr[index]}.png`;
     }, 500);
     card.addEventListener("click", flipCard);
   });
