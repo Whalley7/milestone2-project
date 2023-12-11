@@ -294,22 +294,22 @@ function isSwitchingLevel(level) {
 
 
   switch (level) {
-    case 'easy':
-      images = 'images-0';
+    case "easy":
+      images = "images-0";
 
       break;
-    case 'med':
-      images = 'images-1';
+    case "med":
+      images = "images-1";
 
       break;
-    case 'hard':
-      images = 'images-2';
+    case "hard":
+      images = "images-2";
 
       break;
 
   }
 
-  document.getElementById('game').style.display = 'block';
+  document.getElementById("game").style.display = 'block';
   let previousScore = 0
   localStorage.setItem('level', level);
   let levelText = document.getElementById("levelText");
@@ -474,7 +474,8 @@ function shuffleDeck() {
     card.classList.remove("flip");
     let imgTag = card.querySelector(".back-view img");
     setTimeout(() => {
-      imgTag.src = "assets/images/${images}/img-${arr[index]}.png";
+      imgTag.src = "assets/images/${image}/img-${arr[index]}.png";
+      assets/images/${images-0/
     }, 500);
     card.addEventListener("click", flipCard);
   });
