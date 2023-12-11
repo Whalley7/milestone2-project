@@ -82,7 +82,7 @@ let wordMonth = monthNames[monthNow.getMonth()];
 
 
 //Dislay current date
-document.getElementById("date").innerHTML = day + " " + wordMonth + " " + year;
+document.getElementById("date").innerText = day + " " + wordMonth + " " + year;
 
 
 
@@ -215,13 +215,13 @@ function updateScores(username, level, newScore) {
     oldScore = userScores[username][level];
     if (newScore <= userScores[username][level]) {
 
-      modalHeader.innerHTML = `Bad Luck!`
-      scoreMessage.innerHTML = `Your ${newScore} score is not higher than your score: ${userScores[username][level]} at the ${level} level`
+      modalHeader.innerText = `Bad Luck!`
+      scoreMessage.innerText = `TeYour ${newScore} score is not higher than your score: ${userScores[username][level]} at the ${level} level`
 
     } else if (newScore > userScores[username][level]) {
       userScores[username][level] = newScore;
-      modalHeader.innerHTML = `New High Score!`
-      scoreMessage.innerHTML = `Congratulations! You have a new high score! New Score:  ${newScore}, Previous Score: ${oldScore}`;
+      modalHeader.innerText = `New High Score!`
+      scoreMessage.innerText = `Congratulations! You have a new high score! New Score:  ${newScore}, Previous Score: ${oldScore}`;
       playApplause();
 
     }
@@ -234,8 +234,8 @@ function updateScores(username, level, newScore) {
     };
     userScores[username][level] = newScore;
     // newUserModal(username, level, score);
-    modalHeader.innerHTML = `New Score Added!  Well Done!`
-    scoreMessage.innerHTML = `First score: ${newScore} added for the ${level} level!`;
+    modalHeader.innerText = `New Score Added!  Well Done!`
+    scoreMessage.innerText = `First score: ${newScore} added for the ${level} level!`;
     playApplause();
   }
 
@@ -244,7 +244,7 @@ function updateScores(username, level, newScore) {
   $("#winModal").modal(`show`);
 
   let levelText = document.getElementById("levelText");
-  levelText.innerHTML = `Level: ${level}. Highest score: ${userScores[username][level]}`;
+  levelText.innerText = `Level: ${level}. Highest score: ${userScores[username][level]}`;
 
 
 
@@ -320,8 +320,8 @@ function isSwitchingLevel(level) {
   } else {
     previousScore = 0;
   }
-  levelText.innerHTML = `<li>Level: ${level}</li> <li>Highest score: ${previousScore}</li>`;
-  timerElement.innerHTML = '00:00';
+  levelText.innerText = `Level: ${level} Highest score: ${previousScore}`;
+  timerElement.innerText = '00:00';
   resetAudio();
   shuffleDeck();
 }
@@ -459,7 +459,7 @@ function matchCards(img1, img2) {
 
 function shuffleDeck() {
   flips = matchedCard = 0;
-  flipsTag.innerHTML = flips;
+  flipsTag.innerText = flips;
   matchedPairs = 0;
   cardOne = cardTwo = "";
   time = 0;
@@ -468,7 +468,7 @@ function shuffleDeck() {
   elapsedTime = 0;
   minutes = 0;
   clearInterval(timer);
-  timerElement.innerHTML = flips;
+  timerElement.innerText = flips;
   disableDeck = isGameActive = false;
   arr.sort(() => Math.random() > 0.5 ? 1 : -1);
   cards.forEach((card, index) => {
