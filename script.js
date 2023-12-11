@@ -296,15 +296,15 @@ function isSwitchingLevel(level) {
 
   switch (level) {
     case 'easy':
-      images = 'images-0';
+      image = 'image-0';
 
       break;
     case 'med':
-      images = 'images-1';
+      image = 'image-1';
 
       break;
     case 'hard':
-      images = 'images-2';
+      image = 'image-2';
 
       break;
 
@@ -475,7 +475,7 @@ function shuffleDeck() {
     card.classList.remove("flip");
     let imgTag = card.querySelector(".back-view img");
     setTimeout(() => {
-      imgTag.src = `assets/images/${images}/img-${arr[index]}.png`;
+      imgTag.src = `assets/images/${image}/img-${arr[index]}.png`;
     }, 500);
     card.addEventListener("click", flipCard);
   });
