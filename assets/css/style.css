@@ -487,41 +487,29 @@
 
           }
 
-          @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-
-            width: 80%;
-            /* Adjust the width as needed */
-            max-width: 600px;
-            /* Set a maximum width for better responsiveness */
-            padding: 20px;
-            border: 2px solid #ddd;
-            /* Add a border for visualization */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* Add a box shadow for visualization */
-            background-color: #fff;
-
-            /* Set the background color */
-            h1 {
-              text-align: center;
-              /* This will center text */
-            }
-          }
-
+         
 
 
 
           @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-
+           #dashboard {
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             min-height: 100vh;
             display: flex;
-
-
             h1 {
               text-align: center;
+              font-size: 3vh;
               /* This will center text */
+            }
+            p {
+              font-size: 1vh;
+            }
+            #flips,
+            #levelText,
+            #timer {
+              font-size: 1vh;
             }
           }
