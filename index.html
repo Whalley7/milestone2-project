@@ -31,46 +31,66 @@
             <h1>Pick A Match</h1>
           </div>
         </div>
-           <!-- Dashboard Display-->
-           <div class="row dashboard-section box-white-curved-corners mx-auto align-items-center">
-            <div class="col-md-6 text-center">
-              <div class="border p-3">
-                <p id="date"></p>
-                <h2 class="player">Player</h2>
-
-                <!-- Info modal pops up when clicked-->
-                <button type="button" class="dashboard-btn btn btn-light circle-btn info-btn" data-toggle="modal"
-                  data-target="#infoModal" aria-label="Info about the game button" title="information button">
-                  <i class="far fa-question-circle fa-lg"></i>
-                </button>
-                 <!--mute button -->
-
-
-              <button class="btn">
-                <i class="fa fa-pause-circle-o" id="play" title="play button"></i>
-                <i class="fa fa-play-circle-o" id="pause" title="pause button"></i>
-              </button>
-
-              <!-- reset button-->
-              <button type="button" class="btn dashboard-btn btn-light circle-btn reset-btn" data-toggle="modal"
-                data-target="#resetModal" aria-label="Reset user details" title="reset button">
-                <i class="fas fa-undo fa-lg"></i>
-              </button>
-               <!-- Difficulty Buttons-->
-               <h3>Select a Difficulty Level:</h3>
-               <button class="btn btn-level btn-warning" id="easyButton" value="easy"
-                 aria-label="Easy Level Button">Easy</button>
-               <button class="btn btn-level btn-warning" id="medButton" value="med"
-                 aria-label="Medium Level Button">Medium</button>
-               <button class="btn btn-level btn-warning" id="hardButton" value="hard"
-                 aria-label="Hard Level Button">Hard</button>
- 
-               <div id="levelText">Choose a level to start the game.</div>
-
-               <div id="levelText">Choose a level to start the game.</div>
-               <p>Elapsed Time: <span id="timer">0</span></p>
-              </div>
-            </div>
+        <body>
+          <div class="container-fluid py-5 pb-5">
+            <div id="content-wrapper">
+              <!-- Game Container and Heading-->
+              <main id="body-wrapper">
+                <div id="dashboard" class="container">
+        
+        
+        
+        
+        
+        
+                  <!-- Dashboard Display-->
+                  <div id="body-container" class="container-fluid p-0">
+                    <div class="row dashboard-section box-white-curved-corners mx-auto align-items-center">
+        
+                      <div class="col-md-6 col-md-6 mx-auto	text-center">
+                        <h1>Pick A Match</h1>
+        
+                        <div class="border p-3">
+                          <p id="date"></p>
+                          <h2 class="player">Player</h2>
+        
+                          <!-- Info modal pops up when clicked-->
+                          <button type="button" class="dashboard-btn btn btn-success circle-btn" data-toggle="modal"
+                            data-target="#infoModal" aria-label="Info about the game button" title="information button">
+                            <i class="far fa-question-circle fa-lg"></i>
+                          </button>
+        
+                          <!--mute button -->
+        
+        
+        
+        
+        
+                          <button class="btn btn-info">
+                            <i class="fa fa-play-circle-o" id="play" title="play button"></i>
+                            <i class="fa fa-pause-circle-o" id="pause" title="pause button"></i>
+                          </button>
+        
+                          <!-- reset button-->
+                          <button type="button" class="btn dashboard-btn btn-warning circle-btn reset-btn" data-toggle="modal"
+                            data-target="#resetModal" aria-label="Reset user details" title="reset button">
+                            <i class="fas fa-undo fa-lg"></i>
+                          </button>
+        
+                          <!-- Difficulty Buttons-->
+                          <h3>Select a Difficulty Level:</h3>
+                          <button class="btn btn-level btn-warning" id="easyButton" value="easy"
+                            aria-label="Easy Level Button">Easy</button>
+                          <button class="btn btn-level btn-warning" id="medButton" value="med"
+                            aria-label="Medium Level Button">Med</button>
+                          <button class="btn btn-level btn-warning" id="hardButton" value="hard"
+                            aria-label="Hard Level Button">Hard</button>
+        
+                          <div id="levelText"> Choose a level to start the game.
+                          </div>
+                          <p>Elapsed Time: <span id="timer">0</span></p>
+                        </div>
+                      </div>
             <div class="col-md-6 text-center">
               <div id="game">
                 <div class="border p-3">
