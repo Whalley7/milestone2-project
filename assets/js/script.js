@@ -294,16 +294,16 @@ function isSwitchingLevel(level) {
 
 
   switch (level) {
-    case "easy":
-      images = "images-0";
+    case 'easy':
+      images = 'images-0';
 
       break;
-    case "med":
-      images = "images-1";
+    case 'med':
+      images = 'images-1';
 
       break;
-    case "hard":
-      images = "images-2";
+    case 'hard':
+      images = 'images-2';
 
       break;
 
