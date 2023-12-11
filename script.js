@@ -475,7 +475,7 @@ function shuffleDeck() {
     card.classList.remove("flip");
     let imgTag = card.querySelector(".back-view img");
     setTimeout(() => {
-      imgTag.src = `assets/images/${images}/img-${arr[index]}.png`;
+      imgTag.src = `assets/images/${image}/img-${arr[index]}.png`;
     }, 500);
     card.addEventListener("click", flipCard);
   });
