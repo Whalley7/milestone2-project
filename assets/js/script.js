@@ -7,7 +7,7 @@ let stopGame = false;
 
 
 
-//Card 
+//Card
 let flips = document.querySelectorAll(".card");
 const totalPairs = 8; // Total number of card pairs to match
 
@@ -215,17 +215,17 @@ function updateScores(username, level, newScore) {
     oldScore = userScores[username][level];
     if (newScore <= userScores[username][level]) {
 
-      modalHeader.innerText = `Bad Luck!`
-      scoreMessage.innerText =`Your ${newScore} score is not higher than your score: ${userScores[username][level]} at the ${level} level`
+      modalHeader.innerHTML = `Bad Luck!`
+      scoreMessage.innerHTML = `Your ${newScore} score is not higher than your score: ${userScores[username][level]} at the ${level} level`
 
     } else if (newScore > userScores[username][level]) {
       userScores[username][level] = newScore;
-      modalHeader.innerText = `New High Score!`
-      scoreMessage.innerText = `Congratulations! You have a new high score! New Score:  ${newScore}, Previous Score: ${oldScore}`;
+      modalHeader.innerHTML = `New High Score!`
+      scoreMessage.innerHTML = `Congratulations! You have a new high score! New Score:  ${newScore}, Previous Score: ${oldScore}`;
       playApplause();
 
     }
-  } else {T
+  } else {
     // User doesn't exist, add a new entry with the specified level and score
     userScores[username] = {
       easy: 0,
@@ -234,8 +234,8 @@ function updateScores(username, level, newScore) {
     };
     userScores[username][level] = newScore;
     // newUserModal(username, level, score);
-    modalHeader.innerText = `New Score Added!  Well Done!`
-    scoreMessage.innerText =`First score: ${newScore} added for the ${level} level!`;
+    modalHeader.innerHTML = `New Score Added!  Well Done!`
+    scoreMessage.innerHTML = `First score: ${newScore} added for the ${level} level!`;
     playApplause();
   }
 
@@ -244,7 +244,8 @@ function updateScores(username, level, newScore) {
   $("#winModal").modal(`show`);
 
   let levelText = document.getElementById("levelText");
-  levelText.innerText = `Level: ${level}. Highest score: ${userScores[username][level]}`;
+  levelText.innerHTML = `Level: ${level}. Highest score: ${userScores[username][level]}`;
+
 
 
 }
@@ -309,7 +310,7 @@ function isSwitchingLevel(level) {
 
   }
 
-  document.getElementById("game").style.display = 'block';
+  document.getElementById('game').style.display = 'block';
   let previousScore = 0
   localStorage.setItem('level', level);
   let levelText = document.getElementById("levelText");
@@ -319,8 +320,8 @@ function isSwitchingLevel(level) {
   } else {
     previousScore = 0;
   }
-  levelText.innerText = `Level: ${level}\nHighest score: ${previousScore}`;
-  timerElement.innerText = '00:00';
+  levelText.innerHTML = `<li>Level: ${level}</li> <li>Highest score: ${previousScore}</li>`;
+  timerElement.innerHTML = '00:00';
   resetAudio();
   shuffleDeck();
 }
@@ -458,7 +459,7 @@ function matchCards(img1, img2) {
 
 function shuffleDeck() {
   flips = matchedCard = 0;
-  flipsTag.innerText = flips;
+  flipsTag.innerHTML = flips;
   matchedPairs = 0;
   cardOne = cardTwo = "";
   time = 0;
@@ -474,8 +475,7 @@ function shuffleDeck() {
     card.classList.remove("flip");
     let imgTag = card.querySelector(".back-view img");
     setTimeout(() => {
-      imgTag.src = "assets/images/${images}/img-${arr[index]}.png";
-      assets/images/${images-0/
+      imgTag.src = `assets/images/${images}/img-${arr[index]}.png`;
     }, 500);
     card.addEventListener("click", flipCard);
   });
