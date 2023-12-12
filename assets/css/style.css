@@ -441,41 +441,6 @@
             text-align: left;
           }
 
-          @media screen and (max-width: 767px) {
-
-            /*phones*/
-            h1 {
-              font-size: 26px;
-              text-align: center;
-              /* This will center text */
-
-            }
-
-            h2 {
-              font-size: 22px;
-            }
-          }
-
-
-          /* fixes dashboard and gameboard height issue on phones*/
-          #dashboard,
-          #game-board {
-            height: auto;
-          }
-
-          .dashboard {
-            min-height: auto;
-          }
-
-          @media screen and (max-width: 699px) {
-            .col {
-              display: block;
-              text-align: center;
-            }
-
-          }
-
-          
           @media (max-width: 576px) {
             .column {
               display: none; /* Hide all columns by default on small screens */
@@ -484,6 +449,25 @@
             .active-column {
               display: block; /* Display the active column */
             }
+      
+            .scroll-btn {
+              display: block; /* Display the scroll button on small screens */
+            }
+          }
+      
+          /* Add custom styles for large screens */
+          @media (min-width: 577px) {
+            .column {
+              display: none; /* Hide columns by default on large screens */
+            }
+      
+            .active-column {
+              display: block; /* Display the active column on large screens */
+            }
+      
+            .scroll-btn {
+              display: none; /* Hide the scroll button on large screens */
+            }
           }
       
           /* Add custom styles for the scroll button */
@@ -491,5 +475,4 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            display: none; /* Hide the scroll button by default */
           }

@@ -394,28 +394,38 @@ function endGame() {
 
 }
 
-  // Add JavaScript for scrolling to the next column
-  $(document).ready(function () {
-    let columns = $('.column');
-    let scrollBtn = $('.scroll-btn');
+$(document).ready(function () {
+  var columns = $('.column');
+  var scrollBtn = $('.scroll-btn');
 
-    let currentColumnIndex = 0;
+  var currentColumnIndex = 0;
 
-    // Show the scroll button when the page loads
+  // Show the scroll button when the page loads on small screens
+  if ($(window).width() <= 576) {
     scrollBtn.show();
+  }
 
-    // Add click event to the scroll button
-    scrollBtn.click(function () {
-      // Hide the current active column
-      columns.eq(currentColumnIndex).removeClass('active-column');
+  // Add click event to the scroll button
+  scrollBtn.click(function () {
+    // Hide the current active column
+    columns.eq(currentColumnIndex).removeClass('active-column');
 
-      // Increment the column index or go back to the first column if the last column is reached
-      currentColumnIndex = (currentColumnIndex + 1) % columns.length;
+    // Increment the column index or go back to the first column if the last column is reached
+    currentColumnIndex = (currentColumnIndex + 1) % columns.length;
 
-      // Show the new active column
-      columns.eq(currentColumnIndex).addClass('active-column');
-    });
+    // Show the new active column
+    columns.eq(currentColumnIndex).addClass('active-column');
   });
+});
+
+// Hide/show scroll button based on window size
+$(window).resize(function () {
+  if ($(window).width() <= 576) {
+    scrollBtn.show();
+  } else {
+    scrollBtn.hide();
+  }
+});
 //CARD CONTAINER
 //Initiate the cards
 let cards = [...document.getElementsByClassName("card")];
