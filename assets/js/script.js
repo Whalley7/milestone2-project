@@ -319,7 +319,7 @@ function isSwitchingLevel(level) {
   } else {
     previousScore = 0;
   }
-  levelText.innerText = `Level: ${level}\nHighest score: ${previousScore}`;
+  levelText.innerText = `Highest score at ${level} is ${previousScore}`;
   timerElement.innerText = '00:00';
   resetAudio();
   shuffleDeck();
