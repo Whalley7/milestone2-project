@@ -169,7 +169,7 @@ $(document).ready(function() {
   //var gameIsActive = false; // Set this variable based on your game's condition
 
   // Get the audio element
-  var audio = $('audio')[0]; // Use [0] to access the native DOM element
+  let audio = $('audio')[0]; // Use [0] to access the native DOM element
 
   // Function to play audio
   function playAudio() {
@@ -309,7 +309,7 @@ function isSwitchingLevel(level) {
 
   }
 
-  document.getElementById('game').style.display = 'block';
+  document.getElementById("game").style.display = 'block';
   let previousScore = 0
   localStorage.setItem('level', level);
   let levelText = document.getElementById("levelText");
