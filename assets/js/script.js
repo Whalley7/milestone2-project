@@ -225,7 +225,7 @@ function updateScores(username, level, newScore) {
       playApplause();
 
     }
-  } else {T
+  } else {
     // User doesn't exist, add a new entry with the specified level and score
     userScores[username] = {
       easy: 0,
@@ -384,7 +384,7 @@ function endGame() {
   //  const infoDiv = document.getElementById('userInfo');
 
   // Calculate the final score
-  newScore = 100 * matchedPairs - 2 * flips;
+  newScore = 100 * matchedPairs - (2 * flips);
 
   //Update userScore for level
   //check for level
