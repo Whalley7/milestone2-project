@@ -230,7 +230,7 @@
 
           #dashboard {
             min-height: 100vh;
-            background: url("assets/images/green-white-illustrated-winter-wallpaper.png") no-repeat center fixed;
+            background: url("../images/green-white-illustrated-winter-wallpaper.png") no-repeat center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
